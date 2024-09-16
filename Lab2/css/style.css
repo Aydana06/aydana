@@ -46,22 +46,10 @@ body{
 }
 .showcase{
     background: url(../img/Media\ \(6\).jpg) no-repeat center center/cover;
-    height: 709px;
+    height: 700px;
     color: #fff;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif ;
     font-size: small;
-}
-#home{
-    display: inline-block;
-}
-.home-right{
-    float: right;
-}
-
-#home{
-    background: #333 url(../img/Media\ \(6\).jpg) no-repeat center center/cover;
-    height: 100%;
-    color: #fff;
 }
 
 .btn-light{
@@ -94,7 +82,7 @@ width: 100%;
 .item{
     background-color: #333;
     text-align:center;
-    padding-bottom: 4020px;
+    padding-bottom: 3995px;
 }
 
 .btn:hover{

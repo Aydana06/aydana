@@ -118,7 +118,7 @@ body{
 }
 
 #about_me {
-    height: 500px;
+    height: 700px;
 }
 
 #about_me .about-img{
@@ -184,6 +184,8 @@ body{
 ul, li{
     display: block;
     list-style: none;
+    color: #fff;
+    padding: 10px 10px;
 }
 
 h2 
@@ -194,7 +196,10 @@ h2
 
 }
 #contact{
-    height: 200px;
+    background: url(../img/Media\ \(5\).jpg) no-repeat center center/cover;
+    width: 600px;
+    height: 700px;
+
 }
 
 tr{

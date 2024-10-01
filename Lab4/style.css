@@ -1,0 +1,104 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.4rem;
+}
+
+body ul li {
+  list-style: none;
+}
+
+#about {
+  display: flex;
+}
+.name {
+  display: inline-block;
+  background: #f7c08a;
+  color: #333;
+  width: 100%;
+  line-height: 1.8rem;
+  overflow: hidden;
+  padding: 30px 30px;
+}
+
+.name h1 {
+  padding-bottom: 0px;
+  margin: 10px 20px;
+  letter-spacing: 2px;
+}
+
+.name h3 {
+  font-size: 18px;
+  margin: 20px;
+  letter-spacing: 2px;
+}
+
+.cool {
+  color: #fff;
+}
+.container {
+  display: flex;
+  width: 100%;
+}
+
+.right {
+  background: #fff;
+  border-top: #333 solid 0.5px;
+}
+
+.left {
+  background: #fff;
+  border-top: #333 solid 0.5px;
+  border-right: #333 solid 0.5px;
+}
+
+#contact ul li {
+  padding: 10px 30px;
+}
+#contact i {
+  padding: 0px 10px;
+}
+
+.hobbies ul li {
+  padding: 10px 30px;
+}
+.hobbies i {
+  padding: 0px 10px;
+}
+
+.language ul {
+  margin-bottom: 10px;
+}
+.language ul li {
+  padding: 10px 30px;
+}
+
+.text-primary {
+  text-align: center;
+  padding: 10px 20px;
+  background: #f7c08a;
+  width: 100%;
+  letter-spacing: 3px;
+}
+.text-left {
+  margin: 30px 10px 10px 20px;
+  color: #f7c08a;
+  letter-spacing: 2px;
+}
+
+#about_me p {
+  text-align: justify;
+  padding: 10px 20px;
+}
+.education ul {
+  padding: 10px 20px;
+}
+
+.education h3 {
+  padding: 10px 0px;
+}

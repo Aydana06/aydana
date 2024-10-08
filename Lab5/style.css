@@ -1,0 +1,276 @@
+.body {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --btn-color: #f61067;
+  --lame-btn-color: #2ad392;
+  --nav-link-color: #352ba5;
+  --header-footer-top-color: #13124f;
+  --alert-welcome-border-color: #9090a5;
+  --input-color: #1b1b6c;
+}
+
+.lato-regular {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.lato-bold {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+}
+
+.nav {
+  background-color: var(--nav-link-color);
+  color: #fff;
+  padding-top: 5px;
+}
+
+.header {
+  background-color: var(--header-footer-top-color);
+  color: #fff;
+  padding: 40px 30px;
+}
+
+.header p {
+  margin-bottom: 20px;
+}
+.btn {
+  background-color: var(--btn-color);
+  color: #fff;
+  border-radius: 0%;
+  padding: 5px 10px;
+}
+.video {
+  background: #fff;
+  float: left;
+  width: 70%;
+  padding: 30px 20px 0px 30px;
+}
+.video p {
+  padding-bottom: 10px;
+}
+.video iframe {
+  width: 100%;
+  height: 500px;
+}
+.alert {
+  background: #9090a5;
+  color: #fff;
+  padding: 10px 15px;
+  margin-top: 15px;
+  border-radius: 0%;
+}
+
+.right {
+  background: #fff;
+  float: left;
+  width: 30%;
+  height: 70%;
+}
+
+.pink {
+  margin: 30px 10px 20px 5px;
+}
+.message {
+  background: var(--btn-color);
+  text-align: center;
+  margin-bottom: 20px;
+}
+.grey {
+  background: var(--alert-welcome-border-color);
+  color: #fff;
+  padding: 12px;
+}
+
+.top {
+  background: var(--header-footer-top-color);
+  padding: 10px;
+}
+
+.top p {
+  color: #fff;
+  font-size: 14px;
+}
+
+.form-control {
+  background: var(--input-color);
+  color: #fff;
+  border-top: var(--alert-welcome-border-color) 2px solid;
+  border-bottom: var(--alert-welcome-border-color) 4px solid;
+  border-radius: 0%;
+  border-left: 0cap;
+  border-right: 0cap;
+  color: var(--alert-welcome-border-color);
+}
+
+.bottom {
+  background-color: var(--nav-link-color);
+  padding: 10px 30px;
+  text-align: center;
+  font-size: 10px;
+}
+.send {
+  background: var(--btn-color);
+  width: 100%;
+  border-radius: 0%;
+  text-align: center;
+}
+
+.vote {
+  background: #fff;
+  border: var(--alert-welcome-border-color) solid 0.5px;
+  padding: 10px;
+  margin: 20px 0px;
+  width: 100%;
+  height: auto;
+}
+
+.vote p {
+  line-height: 2cap;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.left-btn .btn {
+  padding: 10px 30px;
+  margin-top: 10px;
+  float: left;
+  margin-right: 15px;
+  width: 47.8%;
+}
+
+.right-btn .btn {
+  background: #fff;
+  color: var(--lame-btn-color);
+  font-weight: 500;
+  border: 2px var(--lame-btn-color) solid;
+  display: inline-block;
+  padding: 10px 26px;
+  margin-top: 10px;
+  width: 47.8%;
+}
+
+.box {
+  width: 75%;
+  height: 10px;
+  background: var(--btn-color);
+  float: left;
+  margin-bottom: 10px;
+}
+
+.box1 {
+  width: 25%;
+  height: 10px;
+  background: var(--lame-btn-color);
+  float: right;
+}
+.footer {
+  background-color: var(--header-footer-top-color);
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.clr {
+  clear: both;
+}
+
+@media only screen and (max-width: 480px) {
+  .header {
+    padding: 20px 15px;
+  }
+
+  .video {
+    width: 100%;
+    padding: 30px 30px 0px 30px;
+  }
+  .video iframe {
+    width: 100%;
+    height: 300px;
+  }
+
+  .right {
+    width: 100%;
+    height: auto;
+    margin-top: 20px;
+  }
+
+  .alert {
+    padding: 10px 15px;
+    margin-top: 0px;
+    margin-bottom: 0px;
+  }
+
+  .message {
+    margin: 5px 0px;
+  }
+  .pink {
+    margin: 0px 30px 0px 30px;
+  }
+  .vote {
+    margin-top: 5px;
+  }
+
+  .left-btn .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+  .right-btn .btn {
+    width: 100%;
+    margin: 5px 0;
+  }
+}
+
+@media only screen and (min-width: 481px) and (max-width: 768px) {
+  .header {
+    padding: 30px 20px;
+  }
+
+  .video {
+    width: 65%;
+    padding: 25px 15px 0px 25px;
+  }
+
+  .right {
+    width: 35%;
+    height: auto;
+  }
+  .video iframe {
+    height: 400px;
+  }
+
+  .alert {
+    margin-bottom: 10px;
+  }
+  .left-btn .btn,
+  .right-btn .btn {
+    width: 100%;
+  }
+}
+
+@media only screen and(min-width: 769px) and(max-width: 1200px) {
+  .header {
+    padding: 40px 30px;
+  }
+
+  .video {
+    width: 70%;
+    padding: 30px 20px 0px 30px;
+  }
+
+  .left-btn,
+  .right-btn {
+    float: left;
+    width: 47.8%;
+  }
+
+  iframe {
+    height: 500px;
+  }
+}

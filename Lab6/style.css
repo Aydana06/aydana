@@ -1,0 +1,367 @@
+body {
+  margin: 0;
+  padding: 0;
+  color: #000;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 1rem;
+  font-weight: 400;
+  letter-spacing: 0.025rem;
+  line-height: 1.5rem;
+  box-sizing: border-box;
+  border-radius: 0%;
+}
+.small {
+  font-size: 12px;
+}
+.text {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.025rem;
+}
+.text-primary {
+  text-align: center;
+}
+.container {
+  max-width: 1500px;
+  overflow: hidden;
+}
+
+#header {
+  display: flex;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  flex-direction: row;
+  justify-content: space-between;
+  /* padding: 20px 40px; */
+  z-index: 1;
+  border-bottom: #dbdbdb solid 0.5px;
+  border-top: #dbdbdb solid 0.5px;
+}
+#header .left {
+  padding: 20px;
+}
+
+#header .left i {
+  padding: 0px 10px;
+  font-size: 12px;
+}
+#header .right {
+  padding: 20px;
+}
+#header .right a {
+  text-decoration: none;
+  color: #000;
+}
+#header .right i {
+  padding: 0px 10px;
+}
+#header h1 {
+  font-weight: 600;
+  letter-spacing: 0.015rem;
+}
+
+.showcase {
+  background: #333 url(../img/women.webp) no-repeat center center/cover;
+  width: 100%;
+  height: auto;
+  color: #fff;
+}
+
+.showcase {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: end;
+  padding: 30px;
+}
+.showcase h2 {
+  letter-spacing: 0.03rem;
+  font-weight: 500px;
+}
+.showcase a {
+  color: #fff;
+}
+#creation {
+  text-align: center;
+  font-size: 28px;
+  font-weight: 500;
+  letter-spacing: 0.025rem;
+  padding: 20px;
+  margin: 20px;
+}
+.creation figcaption {
+  text-align: center;
+  font-size: 14px;
+}
+
+.creation {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.creation figure img {
+  width: 280px;
+  height: auto;
+}
+.exclusive {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  justify-content: end;
+  padding-top: 20px;
+}
+
+.exclusive a {
+  color: #161616;
+}
+.exclusive figcaption {
+  padding: 30px;
+  margin-bottom: 20px;
+}
+.exclusive img {
+  width: 100%;
+  height: auto;
+}
+
+.white {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-top: 20px;
+  font-size: 12px;
+}
+
+.white figure img {
+  width: 280px;
+  height: auto;
+  background: #e5e2e2;
+}
+
+.perfume figure img {
+  width: 100%;
+  height: auto;
+}
+.perfume a {
+  color: #161616;
+}
+.perfume figcaption {
+  padding: 30px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.perfumes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  font-size: 12px;
+}
+.perfumes figure img {
+  width: 280px;
+  height: auto;
+  background: #e5e2e2;
+}
+.top {
+  text-align: center;
+  padding: 30px;
+  margin-top: 30px;
+}
+.grey {
+  color: #838282;
+}
+.service {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding-bottom: 40px;
+}
+
+.service figure img {
+  width: 400px;
+  height: auto;
+}
+
+.service figcaption {
+  text-align: center;
+  padding: 20px;
+}
+.service a {
+  color: #333;
+  margin: 20px 10px;
+  padding-top: 30px;
+  margin-top: 20px;
+}
+
+.contact {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: #dbdbdb solid 0.5px;
+  border-top: #dbdbdb solid 0.5px;
+  list-style: none;
+  padding: 20px 40px;
+  font-size: 12px;
+}
+.contact .help ul li {
+  list-style: none;
+  padding: 10px 0px;
+}
+.contact .help a {
+  color: #333;
+}
+
+.contact .services ul li {
+  list-style: none;
+  padding: 10px 0px;
+}
+.contact .about ul li {
+  list-style: none;
+  padding: 10px 0px;
+}
+.uppercase {
+  text-transform: uppercase;
+}
+
+.contact .email ul li {
+  list-style: none;
+  padding: 10px 0px;
+}
+.contact .email a {
+  color: #333;
+}
+.bottom {
+  float: none;
+  padding-top: 80px;
+  padding-bottom: 30px;
+  padding-right: 20px;
+}
+.language {
+  float: left;
+  padding-top: 40px;
+  padding-left: 70px;
+  margin-left: 30px;
+  color: #333;
+}
+.language a {
+  color: #333;
+}
+
+.right {
+  float: right;
+  font-size: 12px;
+  padding-top: 40px;
+  padding-right: 70px;
+  margin-right: 30px;
+  color: #333;
+}
+
+.right a {
+  text-decoration: none;
+  color: #333;
+  padding: 0px 10px;
+}
+
+@media only screen and (max-width: 768px) {
+  .help,
+  .services,
+  .about,
+  .email {
+    display: none;
+  }
+
+  .contact {
+    display: flex;
+    flex-direction: column;
+  }
+  details ul li {
+    list-style: none;
+    line-height: 2.5rem;
+  }
+  summary {
+    list-style: none;
+  }
+  details {
+    border-top: #dbdbdb solid 0.5px;
+    padding: 20px 0px;
+    font-size: 14px;
+    line-height: normal;
+  }
+  .bottom {
+    display: none;
+  }
+  .footer {
+    display: flex;
+    flex-direction: column-reverse;
+    text-align: center;
+  }
+  .language {
+    padding: 0px;
+    margin: 0px;
+    padding-bottom: 30px;
+  }
+
+  .right {
+    padding: 30px 0px 20px 0px;
+    margin: 0px;
+    font-size: 14px;
+  }
+  .service {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+  }
+  .service figure img {
+    width: 400px;
+    height: auto;
+  }
+  .hide {
+    display: none;
+  }
+
+  .call {
+    display: none;
+  }
+  .love {
+    display: none;
+  }
+  #header i {
+    display: none;
+  }
+  #header h1 {
+    font-size: 18px;
+    padding-top: 10px;
+  }
+  .showcase {
+    text-align: center;
+    font-size: 14px;
+  }
+}
+
+@media only screen and (min-width: 769px) {
+  details {
+    display: none;
+    list-style: none;
+  }
+  .louis {
+    display: none;
+  }
+
+  #header {
+    display: flex;
+  }
+  .hide {
+    display: none;
+  }
+  #header {
+    padding: 20px 0px;
+  }
+  .left {
+    padding-left: 40px;
+  }
+}

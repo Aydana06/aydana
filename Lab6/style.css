@@ -23,7 +23,7 @@ body {
   text-align: center;
 }
 .container {
-  max-width: 1500px;
+  max-width: 100%;
   overflow: hidden;
 }
 

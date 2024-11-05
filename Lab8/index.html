@@ -82,7 +82,13 @@
       }
 
       function arrayXBEX(arr) {
-        return arr.reduce((acc, num) => XBEX(acc, num), arr[0]);
+        let acc = arr[0];
+
+        for (let i = 1; i < arr.length; i++) {
+          acc = XBEX(acc, arr[i]);
+        }
+
+        return acc;
       }
       const r = arrayXBEX(arr);
       console.log("Xamgiin baga yeronhii hubaagdagch: ", r);

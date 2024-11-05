@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Lab8</title>
+  </head>
+  <body>
+    <script>
+      document.writeln("<h2>Bodlogo 1</h2>");
+      let a = parseInt(window.prompt("a toog oruul: "));
+      let b = parseInt(window.prompt("b toog oruul: "));
+      let Sum = a + b;
+      let n = Sum;
+      let reversed = 0;
+      let original = n;
+      while (n > 0) {
+        let k = n % 10;
+        reversed = 10 * reversed + k;
+        n = (n - k) / 10;
+      }
+
+      if (original === reversed) {
+        document.writeln(Sum + " bol Palindrom too mun\n");
+      } else {
+        document.writeln(Sum + " bol Palindrom too bish\n");
+      }
+    </script>
+    <br />
+    <script>
+      document.writeln("<h2>Bodlogo 2</h2>");
+      let d = parseInt(window.prompt("d too oruul: "));
+      let wolf = 25;
+      let rabbit = 18;
+      let V = wolf - rabbit;
+      let tHours = d / V;
+      let tMin = tHours * 60;
+      let tSec = tHours * 3600;
+      document.writeln(tMin + " min " + tSec + " sec daraa gehed guitsene");
+    </script>
+    <br />
+    <script>
+      document.writeln("<h2>Bodlogo 3</h2>");
+      toot = parseInt(window.prompt("Baishinii tootiig oruul: "));
+      let davhar = 9;
+      let orts = 3;
+      let ail = 4;
+      toot -= 1;
+      var N = toot / (davhar * ail) + 1;
+      document.writeln(parseInt(N) + "-r orts");
+      var M = (toot % (davhar * ail)) / ail + 1;
+      document.writeln(parseInt(M) + "-r davhar");
+      var L = (toot % ail) + 1;
+      document.writeln(parseInt(L) + "-r haalga");
+    </script>
+    <br />
+    <script>
+      document.writeln("<h2>Bodlogo 4</h2>");
+      let arr = [];
+      for (var i = 0; i < 5; i++) {
+        arr[i] = parseInt(window.prompt(i + "-r toog oruul: "));
+      }
+      console.log(arr);
+
+      function XIEX(a, b) {
+        while (b != 0) {
+          const temp = b;
+          b = a % b;
+          a = temp;
+        }
+        return a;
+      }
+
+      function XBEX(a, b) {
+        return (a * b) / XIEX(a, b);
+      }
+
+      function arrayXBEX(arr) {
+        return arr.reduce((acc, num) => XBEX(acc, num), arr[0]);
+      }
+      const r = arrayXBEX(arr);
+      console.log("Xamgiin baga yeronhii hubaagdagch: ", r);
+      document.writeln("Xamgiin baga yeronhii hubaagdagch: " + r);
+    </script>
+    <script>
+      document.writeln("<h2>Bodlogo 5</h2>");
+      var number = parseInt(window.prompt(" too oruul: "));
+      var currentHour = new Date().getHours();
+      var result;
+      if (currentHour >= 6 && currentHour < 18) {
+        result = number * number;
+        document.writeln("Ugluu: " + number + " toonii 2 zereg ni: " + result);
+      } else {
+        result = Math.sqrt(number);
+        document.writeln("Oroi: " + number + " toonii yazguur ni: " + result);
+      }
+    </script>
+  </body>
+</html>
+
+<!-- const, var, let -->

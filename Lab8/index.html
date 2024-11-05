@@ -9,21 +9,24 @@
     <script>
       document.writeln("<h2>Bodlogo 1</h2>");
       let a = parseInt(window.prompt("a toog oruul: "));
-      let b = parseInt(window.prompt("b toog oruul: "));
-      let Sum = a + b;
-      let n = Sum;
-      let reversed = 0;
-      let original = n;
+      let sum = 0;
+      let n = a;
       while (n > 0) {
-        let k = n % 10;
+        sum += n % 10;
+        n = n % 10;
+      }
+      let reversed = 0;
+      let temp = sum;
+      while (temp > 0) {
+        let k = temp % 10;
         reversed = 10 * reversed + k;
-        n = (n - k) / 10;
+        temp = (temp - k) / 10;
       }
 
-      if (original === reversed) {
-        document.writeln(Sum + " bol Palindrom too mun\n");
+      if (sum === reversed) {
+        document.writeln("Palindrom too mun\n");
       } else {
-        document.writeln(Sum + " bol Palindrom too bish\n");
+        document.writeln("Palindrom too bish\n");
       }
     </script>
     <br />
@@ -34,9 +37,12 @@
       let rabbit = 18;
       let V = wolf - rabbit;
       let tHours = d / V;
-      let tMin = tHours * 60;
-      let tSec = tHours * 3600;
-      document.writeln(tMin + " min " + tSec + " sec daraa gehed guitsene");
+      let hours = Math.floor(tHours);
+      let minutes = Math.floor((tHours - hours) * 60);
+      let seconds = Math.floor(((tHours - hours) * 60 - minutes) * 60);
+      document.writeln(
+        minutes + " min " + seconds + " sec daraa gehed guitsene"
+      );
     </script>
     <br />
     <script>
@@ -97,5 +103,3 @@
     </script>
   </body>
 </html>
-
-<!-- const, var, let -->

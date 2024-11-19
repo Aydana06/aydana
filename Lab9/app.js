@@ -30,6 +30,7 @@ function handleLetterClick(letterElement) {
       letterElement.style.color = "#333";
     }
     wordDisplay.innerText = guessed.join(" ");
+    alert("Correct!");
     if (!guessed.includes("_")) {
       alert("You Win! Starting Next Level... " + targetWord);
       wordDisplay.innerText = guessed.join(targetWord);

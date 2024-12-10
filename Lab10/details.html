@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мэдээний дэлгэрэнгүй</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      h1 {
+        text-align: center;
+        background: coral;
+        padding: 20px;
+        color: #fff;
+      }
+      .news-item {
+        margin-bottom: 30px;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .news-item h2 {
+        font-size: 20px;
+        text-align: center;
+        background: coral;
+        color: #fff;
+        padding: 10px;
+        border-radius: 15px;
+      }
+
+      .news-item p {
+        font-size: 16px;
+        color: #555;
+        margin-bottom: 10px;
+        text-align: justify;
+      }
+      .news-item img {
+        max-width: auto;
+        height: auto;
+        margin: 10px 0;
+      }
+      .news-item .pub-date {
+        font-size: 14px;
+        color: #333;
+        margin-top: 10px;
+      }
+
+      .news-item ul li {
+        list-style: none;
+      }
+      .sidebar {
+        width: 25%;
+        position: fixed;
+        top: 0;
+        left: 0;
+        padding: 10px;
+        background: #f1f1f1;
+        border-right: 2px solid #ddd;
+        height: 100vh;
+        overflow-y: auto;
+      }
+
+      .sidebar a {
+        display: block;
+        margin-bottom: 10px;
+        color: #007bff;
+        text-decoration: none;
+        font-size: 16px;
+      }
+
+      .sidebar a:hover {
+        color: #0056b3;
+      }
+
+      .content {
+        margin-left: 30%;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="sidebar">
+      <h2>Мэдээний гарчигууд</h2>
+    </div>
+
+    <div class="content">
+      <h1>Мэдээний дэлгэрэнгүй</h1>
+      <div id="news-detail"></div>
+    </div>
+
+    <script>
+      const sidebar = document.querySelector(".sidebar");
+      const newsDetailContainer = document.getElementById("news-detail");
+
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "doc.xml");
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
+
+          const items = xmlDoc.getElementsByTagName("item");
+
+          for (let i = 0; i < items.length; i++) {
+            const item = items[i];
+            const title = item.getElementsByTagName("title")[0].textContent;
+            const description =
+              item.getElementsByTagName("description")[0].textContent;
+            const sidebarLink = document.createElement("a");
+            sidebarLink.textContent = title;
+            sidebarLink.href = `#item-${i}`;
+            sidebar.appendChild(sidebarLink);
+
+            const newsItem = document.createElement("div");
+            newsItem.classList.add("news-item");
+            newsItem.id = `item-${i}`;
+
+            const titleElement = document.createElement("h2");
+            titleElement.textContent = title;
+            newsItem.appendChild(titleElement);
+
+            const descriptionElement = document.createElement("p");
+            descriptionElement.innerHTML = description;
+            newsItem.appendChild(descriptionElement);
+
+            newsDetailContainer.appendChild(newsItem);
+          }
+        } else {
+          console.error("XML файл уншихад алдаа гарлаа!");
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error("XML хүсэлт илгээхэд алдаа гарлаа!");
+      };
+
+      xhr.send();
+    </script>
+  </body>
+</html>

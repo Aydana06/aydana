@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Мэдээний сайт</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        margin: 20px;
+      }
+      .news-item {
+        padding: 20px;
+        background: #f7f7f7;
+        margin-bottom: 20px;
+      }
+      .news-item a {
+        font-size: 18px;
+        text-decoration: none;
+        color: #000;
+      }
+      .news-item a:hover {
+        color: #007bff;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Сүүлийн мэдээнүүд</h1>
+    <div id="news-list"></div>
+
+    <script>
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", "doc.xml");
+      xhr.onload = function () {
+        if (xhr.status === 200) {
+          const parser = new DOMParser();
+          const xmlDoc = parser.parseFromString(xhr.responseText, "text/xml");
+
+          const items = xmlDoc.getElementsByTagName("item");
+          const newsList = document.getElementById("news-list");
+
+          for (let i = 0; i < items.length; i++) {
+            const title = items[i].getElementsByTagName("title")[0].textContent;
+            const link = items[i].getElementsByTagName("link")[0].textContent;
+            const description =
+              items[i].getElementsByTagName("description")[0].textContent;
+
+            const newsItem = document.createElement("div");
+            newsItem.classList.add("news-item");
+
+            const titleElement = document.createElement("a");
+            titleElement.href = `details.html#item-${i}`;
+            titleElement.textContent = title;
+
+            newsItem.appendChild(titleElement);
+            newsList.appendChild(newsItem);
+          }
+        } else {
+          console.error("RSS татахад алдаа гарлаа.");
+        }
+      };
+
+      xhr.onerror = function () {
+        console.error("Хүсэлт илгээхэд алдаа гарлаа.");
+      };
+
+      xhr.send();
+    </script>
+  </body>
+</html>

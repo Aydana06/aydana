@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Бие хүний хэв шинжийг судлах К.Юнгийн сорил</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      media="only screen and(max-width: 768px)"
+      href="./mobile.css"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="logo">ADN</h1>
+      <div class="sidebar">
+        <ul>
+          <li><a href="./index.html">Нүүр хуудас</a></li>
+          <li><a class="current" href="./test.html">Тестүүд</a></li>
+          <li><a href="./info.html">Нэмэлт мэдээлэл</a></li>
+          <li><a href="./contact.html">Холбоо барих</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="test1">
+      <h1 class="heading">Бие хүний хэв шинжийг судлах К.Юнгийн сорил</h1>
+      <form id="quizForm">
+        <div id="questions-container"></div>
+        <button id="btn-1" type="button" onclick="calculateResult()">
+          Үр дүн харах
+        </button>
+      </form>
+      <p id="result"></p>
+    </div>
+    <script>
+      const questions = [
+        "Та доорх хоёр сэтгэмжийн алийг нь чухал гэж үзэх вэ?",
+        "Та ямар номыг илүүд үздэг вэ?",
+        "Доорх хоёр дутагдлын аль нь танд илүү тохиолддог вэ?",
+        "Хэрвээ та болчимгүй явдал гаргавал?",
+        "Та хүмүүстэй учир зүйгээ хир зэрэг амар ололцож чаддаг вэ?",
+        "Та өөрийгөө гомдомтгой эмзэг хүн гэж үздэг үү?",
+        "Та чин сэтгэлээсээ инээн баясдаг уу?",
+        "Та өөрийгөө ямархуу хүн гэж боддог вэ?",
+        "Доорх хоёр чанарын аль нь танд илүү илэрдэг вэ?",
+        "Та аливааг эргэцүүлэн бодох, тунгаах чадвартай юу?",
+        "Та хүмүүсийн дунд байхдаа доорх хоёр тохиолдлын алыг чухалд үздэг вэ?",
+        "Та байнга сэтгэл дундуур байдаг уу?",
+        "Та ямар нэгэн ажлыг зохион байгуулах дуртай юу?",
+        "Нууцхан өдрийн тэмдэглэл хөтлөх хүсэл төрдөг үү?",
+        "Та гаргасан шийдвэрээ шуурхай хэрэгжүүлж чаддаг уу?",
+        "Таны сэтгэл санааны байдал амархан өөрчлөгддөг үү?",
+        "Та бусдыг ятгаж үзэл бодлоо ойлгуулах дуртай юу?",
+        "Таны хөдөлгөөн?",
+        "Тохиолдож болзошгүй таагүй байдлаас болж таны сэтгэл зовинодог уу?",
+        "Амьдралд бэрхшээл тохиолдвол та?",
+      ];
+
+      const options = [
+        ["Цөөн тооны найз нөхөдтэй байх", "Олон хүнтэй найзалж нөхөрлөх"],
+        [
+          "Зугаатай, хөгжилтэй адал явдалтай",
+          "Хүмүүсийн дотоод ертөнцийг харуулсан",
+        ],
+        ["Ажлаас хоцрох", "Алдаа дутагдал гаргах"],
+        ["Сэтгэл хүчтэй шаналдаг", "Юмны чинээ боддоггүй"],
+        ["Төвөггүй, хялбар", "Бодож байж удаан"],
+        ["Тийм", "Үгүй"],
+        ["Тийм", "Үгүй"],
+        ["Дуу цөөтэй", "Яриасаг"],
+        ["Илэн далангүй", "Үл анзаарагдмал битүүлэг"],
+        ["Тийм", "Үгүй"],
+        ["Өөрөө ярихыг", "Бусдыг сонсохыг"],
+        ["Тийм", "Үгүй"],
+        ["Тийм", "Үгүй"],
+        ["Тийм", "Үгүй"],
+        ["Тийм", "Үгүй"],
+        ["Тийм", "Үгүй"],
+        ["Тийм", "Үгүй"],
+        ["Түргэн", "Удаан"],
+        ["Байнга", "Хааяа"],
+        [
+          "Бусдаас туслалцаа авахаар хандана",
+          "Өөрөө асуудлаа шийдэхийг эрмэлзэнэ",
+        ],
+      ];
+
+      const extrovertKeyAnswers = {
+        1: "b",
+        2: "a",
+        3: "b",
+        4: "a",
+        5: "a",
+        6: "b",
+        7: "a",
+        8: "b",
+        9: "a",
+        10: "b",
+        11: "a",
+        12: "b",
+        13: "a",
+        14: "b",
+        15: "a",
+        16: "a",
+        17: "a",
+        18: "a",
+        19: "b",
+        20: "a",
+      };
+
+      var questionsContainer = document.getElementById("questions-container");
+
+      for (var i = 0; i < questions.length; i++) {
+        var div = document.createElement("div");
+        div.className = "questions";
+        div.id = "question-" + i;
+
+        div.style.display = i === 0 ? "block" : "none";
+        div.innerHTML = `
+    <p>${i + 1}. ${questions[i]}</p>
+    <div class="options">
+      <label class="answer">
+        <input type="radio" name="q${i + 1}" value="a">${options[i][0]}
+      </label>
+      <label class="answer">
+        <input type="radio" name="q${i + 1}" value="b">${options[i][1]}
+      </label>
+    </div>
+    <div class="prev-next"> <button type="button" class="prev" onclick="showPrevious(${i})">
+      Өмнөх
+    </button>
+    <button type="button" class="next" onclick="showNext(${i})">
+      Дараах
+    </button></div>
+  `;
+        questionsContainer.appendChild(div);
+        div.style.padding = "0px 100px";
+      }
+
+      function showPrevious(currentIndex) {
+        var currentQuestion = document.getElementById(
+          "question-" + currentIndex
+        );
+        var previousQuestion = document.getElementById(
+          "question-" + (currentIndex - 1)
+        );
+
+        if (previousQuestion) {
+          currentQuestion.style.display = "none";
+          previousQuestion.style.display = "block";
+        }
+      }
+
+      function showNext(currentIndex) {
+        var currentQuestion = document.getElementById(
+          "question-" + currentIndex
+        );
+        var nextQuestion = document.getElementById(
+          "question-" + (currentIndex + 1)
+        );
+
+        var selected = document.querySelector(
+          `input[name="q${currentIndex + 1}"]:checked`
+        );
+        if (!selected) {
+          alert("Энэ асуултад хариулна уу!");
+          return;
+        }
+
+        if (nextQuestion) {
+          currentQuestion.style.display = "none";
+          nextQuestion.style.display = "block";
+        } else {
+          alert("Бүх асуултад хариуллаа!");
+        }
+      }
+
+      function calculateResult() {
+        var form = document.forms["quizForm"];
+        var score = 0;
+
+        for (var key in extrovertKeyAnswers) {
+          var answer = form["q" + key]?.value;
+          if (answer === extrovertKeyAnswers[key]) {
+            score += 1;
+          }
+        }
+        // if (answer.length < questions.length) {
+        //   alert("Бүх асуултад хариулна уу!");
+        //   return;
+        // }
+        var totalScore = score * 5;
+        var personalityType = "";
+
+        if (totalScore <= 35) {
+          personalityType = "Интроверт";
+        } else if (totalScore <= 65) {
+          personalityType = "Амбиверт (хосолмол хэв шинж)";
+        } else {
+          personalityType = "Экстраверт";
+        }
+
+        document.getElementById("result").innerText =
+          "Таны нийт оноо: " +
+          totalScore +
+          "\nТаны сэтгэл зүйн хэв шинж: " +
+          personalityType;
+        var result = document.getElementById("result");
+        result.style.background = "#6592fe";
+        result.style.color = "#fff";
+        result.style.padding = "20px 100px";
+        result.style.margin = "10px 0px";
+        result.style.borderRadius = "12px";
+      }
+    </script>
+  </body>
+</html>

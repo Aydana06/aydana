@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="mn">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Зан чанар тодорхойлох тест</title>
+    <link rel="stylesheet" href="./style.css" />
+    <link
+      rel="stylesheet"
+      media="only screen and(max-width: 768px)"
+      href="./mobile.css"
+    />
+  </head>
+  <body>
+    <div class="header">
+      <h1 class="logo">ADN</h1>
+      <div class="sidebar">
+        <ul>
+          <li><a href="./index.html">Нүүр хуудас</a></li>
+          <li><a class="current" href="./test.html">Тестүүд</a></li>
+          <li><a href="./info.html">Нэмэлт мэдээлэл</a></li>
+          <li><a href="./contact.html">Холбоо барих</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="test4">
+      <h1 class="heading">Зан чанар тодорхойлох тест</h1>
+      <p>
+        Доорх асуултуудаас өөрийн хандлага, зан байдлыг тусгасан хамгийн
+        тохиромжтой хариултыг сонгоно уу.
+      </p>
+
+      <form id="personalityTest"></form>
+      <button type="button" onclick="calculatePersonality()">
+        Үр дүнг харах
+      </button>
+
+      <div class="result" id="result4"></div>
+    </div>
+
+    <script>
+      var questions = [
+        "Та ямар төрлийн үйл ажиллагаанд дуртай вэ?",
+        "Та чөлөөт цагаараа юу хийхийг илүүд үздэг вэ?",
+        "Та шийдвэр гаргахдаа ямархуу байдаг вэ?",
+        "Асуудал үүсэхэд та хэрхэн ханддаг вэ?",
+        "Та ажлыг ямар аргаар хийхийг илүүд үздэг вэ?",
+        "Та амжилтанд хүрэхийн тулд юу хийхэд бэлэн вэ?",
+      ];
+
+      var options = [
+        [
+          { value: "leader", text: "Удирдан зохион байгуулах." },
+          { value: "social", text: "Хүмүүстэй харилцах." },
+          {
+            value: "analytical",
+            text: "Дүн шинжилгээ хийх, асуудал шийдвэрлэх.",
+          },
+          { value: "reflective", text: "Гүн бодолд автах, тайван байх." },
+        ],
+        [
+          { value: "leader", text: "Шинэ төслүүд эхлүүлэх." },
+          { value: "social", text: "Найзуудтайгаа уулзах." },
+          { value: "analytical", text: "Судалгаа хийх эсвэл ном унших." },
+          { value: "reflective", text: "Тайван, ганцаараа амрах." },
+        ],
+        [
+          { value: "leader", text: "Түргэн, зоригтой шийдвэр гаргадаг." },
+          { value: "social", text: "Бусдын санал бодлыг сонсож шийддэг." },
+          {
+            value: "analytical",
+            text: "Бүх мэдээллийг дүн шинжилгээ хийсний дараа шийддэг.",
+          },
+          { value: "reflective", text: "Нилээд хугацаа авч боддог." },
+        ],
+        [
+          {
+            value: "leader",
+            text: "Удирдан зохион байгуулж, шуурхай шийддэг.",
+          },
+          { value: "social", text: "Бусдаас тусламж авахыг хүсдэг." },
+          { value: "analytical", text: "Асуудлын үндсийг олж шийддэг." },
+          { value: "reflective", text: "Зайлсхийхийг оролддог." },
+        ],
+        [
+          { value: "leader", text: "Багийг удирдан зохион байгуулах замаар." },
+          {
+            value: "social",
+            text: "Хамтран ажиллах, бусадтай ярилцах замаар.",
+          },
+          {
+            value: "analytical",
+            text: "Ганцаарчилж, нарийн тооцоолох замаар.",
+          },
+          { value: "reflective", text: "Тайван орчинд бие даан хийх замаар." },
+        ],
+        [
+          { value: "leader", text: "Өөрийн бүх нөөц боломжийг дайчлах." },
+          { value: "social", text: "Бусадтай хамтран ажиллаж, дэмжлэг авах." },
+          {
+            value: "analytical",
+            text: "Судалгаа хийж, хамгийн үр дүнтэй арга замыг сонгох.",
+          },
+          {
+            value: "reflective",
+            text: "Цаг хугацаанд тулгуурлан тайван шийдэл гаргах.",
+          },
+        ],
+      ];
+
+      function renderQuestions() {
+        var form = document.getElementById("personalityTest");
+        for (var i = 0; i < questions.length; i++) {
+          var questionGroup = document.createElement("div");
+          questionGroup.className = "question4";
+
+          var questionHeader = document.createElement("h3");
+          questionHeader.textContent = i + 1 + ". " + questions[i];
+          questionGroup.appendChild(questionHeader);
+
+          for (var j = 0; j < options[i].length; j++) {
+            var label = document.createElement("label");
+            var input = document.createElement("input");
+            input.type = "radio";
+            input.name = "q" + (i + 1);
+            input.value = options[i][j].value;
+            label.appendChild(input);
+            label.appendChild(document.createTextNode(options[i][j].text));
+            questionGroup.appendChild(label);
+          }
+
+          form.appendChild(questionGroup);
+          questionGroup.style.padding = "10px 20px";
+          questionGroup.style.margin = "10px";
+          questionGroup.style.borderRadius = "15px";
+        }
+      }
+
+      function calculatePersonality() {
+        var answers = {
+          leader: 0,
+          social: 0,
+          analytical: 0,
+          reflective: 0,
+        };
+
+        var form = document.getElementById("personalityTest");
+        var formData = new FormData(form);
+
+        for (var value of formData.values()) {
+          answers[value]++;
+        }
+
+        var maxType = Object.keys(answers).reduce(function (a, b) {
+          return answers[a] > answers[b] ? a : b;
+        });
+
+        var descriptions = {
+          leader:
+            "Та бол удирдан зохион байгуулах авьяастай, өөртөө итгэлтэй, хүчирхэг зан чанартай хүн юм.",
+          social:
+            "Та бол нийтэч, найз нөхдөөр хүрээлүүлэх дуртай, бусадтай харилцахдаа гайхалтай хүн юм.",
+          analytical:
+            "Та бол асуудлыг дүн шинжилгээ хийж шийдвэрлэхдээ чадварлаг, нарийн тооцоотой хүн юм.",
+          reflective:
+            "Та бол тайван, бодол санаандаа төвлөрдөг, гүн бодолтой, бие даасан хүн юм.",
+        };
+
+        var resultDiv = document.getElementById("result4");
+        resultDiv.innerHTML = "<p>" + descriptions[maxType] + "</p>";
+      }
+
+      renderQuestions();
+    </script>
+  </body>
+</html>
